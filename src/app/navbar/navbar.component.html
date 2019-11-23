@@ -1,0 +1,50 @@
+<header class="U7IH3 RwMWO">
+<nav class="navbar justify-content-between">
+    <a class="navbar-brand" [routerLink]="['/movies']" href="#">
+        <h3 class="font-weight-bold text-white">Ace Movies</h3>
+    </a>
+    <button class="btn orange dropbtn" (click)="onChange()" [ngClass]="toggle ? 'change':''">
+        <div class="menu-icon bar1"></div>
+        <div class="menu-icon bar2"></div>
+        <div class="menu-icon bar3"></div>
+    </button>
+</nav>
+</header>
+<div class="dropdown d-flex pt-5">
+    <div class="dropdown-content pt-5" [ngClass]="toggle ? 'd-block':''">
+    <div class="header">
+        <div *ngIf="!_authService.currentUser">
+            <div class="d-flex">
+                <a class="btn btn-secondary pl-5 pr-5 pt-2 pb-2 orange mr-2" (click)="!onChange()" [routerLink]="['user/register']">Register</a>
+                <a class="btn btn-secondary pl-5 pr-5 pt-2 pb-2 orange ml-2" (click)="!onChange()" [routerLink]="['user/login']">Login</a>
+            </div>
+        </div>
+        <div *ngIf="_authService.currentUser" class="text-white font-weight-bold">
+            Welcome {{ _authService.currentUser.firstName }}
+        </div>
+    </div>
+    <div class="row shadow">
+        <div class="column">
+            <a (click)="!onChange()" href="#">Action</a>
+            <a (click)="!onChange()" href="#">Animes</a>
+            <a (click)="!onChange()" href="#">Comedy</a>
+            <a (click)="!onChange()" href="#">Documentry</a>
+        </div>
+        <div class="column">
+            <a (click)="!onChange()" href="#">Drama</a>
+            <a (click)="!onChange()" href="#">Horror</a>
+            <a (click)="!onChange()" href="#">Most Popular Movie</a>
+            <a (click)="!onChange()" href="#">Most Popular TV Shows</a>
+        </div>
+        <div (click)="!onChange()" class="column">
+            <a (click)="!onChange()" href="#">Recently Added</a>
+            <a (click)="!onChange()" href="#">Romance</a>
+            <a (click)="!onChange()" href="#">Sci-Fi & Fantasy</a>
+            <a (click)="!onChange()" href="#">Thrillers</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+

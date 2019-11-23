@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    /* background: -webkit-linear-gradient(to left, rgb(36, 23, 53) , #44318D); Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right,  #2A1B3D , #44318D);  */
+    background: #241735;
+    font-family: Helvetica, sans-serif, Arial;
+}
+body, input[type="text"], button {
+font-family: Cambria, Georgia;
+}
+.grey{
+    background-color:#271f49;
+}
+.input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #ff501a;
+    font-weight: bold;
+}
+.orange{
+    background-color: #ff501a;
+    border: none;
+    font-weight: bold;
+}

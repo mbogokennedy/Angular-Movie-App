@@ -1,0 +1,43 @@
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+            <h3>Welcome</h3>
+            <p>You are 30 seconds away from accessing this movie details</p>
+            <input type="submit" class="btn btn-secondary  pl-5 pr-5 pt-2 pb-2 orange"  (click)="login()" value="Login"/>
+        </div>
+        <div class="col-md-9 mb-5">
+            <h3 class="text-white text-center mb-5 font-weight-bold">Register</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="saveProfile(registerForm.value)" class="row register-form text-center">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <em *ngIf="!validateFirstName()" class="invalid-feedback">Requiered</em>
+                        <input type="text" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid':!validateFirstName()}" placeholder="First Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <em *ngIf="!validateLastName()" class="invalid-feedback">Requiered</em>
+                        <input type="text" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid':!validateLastName()}" placeholder="Last Name *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <em *ngIf="!validateEmail()" class="invalid-feedback">Requiered</em>
+                        <em *ngIf="!validateEmail()" class="invalid-feedback">Enter a valid email</em>
+                        <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid':!validateEmail()}" placeholder="Your Email *" value="" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <em *ngIf="!validatePassword()" class="invalid-feedback">Requiered</em>
+                        <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': !validatePassword()}" placeholder="Password *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <em *ngIf="!validateConfirmPassword()" class="invalid-feedback">Requiered</em>
+                        <input type="password" class="form-control"  formControlName="confirmPassword" [ngClass]="{'is-invalid':!validateConfirmPassword()}" placeholder="Confirm Password *" value="" />
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-secondary  pl-5 pr-5 pt-2 pb-2 orange mr-2"  value="Register"/>
+                <button class="btn btn-secondary pl-5 pr-5 pt-2 pb-2 orange ml-2" (click)="cancel()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+</div>

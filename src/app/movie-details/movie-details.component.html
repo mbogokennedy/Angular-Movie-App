@@ -1,0 +1,117 @@
+<div class="text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xm-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                <div class="breadcrumb grey text-white" style="z-index: 1">
+                    <h5>{{  movie?.title }} - ({{movie?.status}})</h5>
+                </div>
+                <div class="img-thumbnail grey">
+                    <img src="{{'https://image.tmdb.org/t/p/original'+movie?.poster_path}}" [alt]="movie?.title" class="poster img-fluid">
+                </div>
+            </div>
+            <div class="col-xm-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                <div class="breadcrumb grey text-white">
+                    <p><span *ngFor="let genre of movie?.genres">{{genre.name}}, </span></p>
+                </div>
+                <table class="table table-striped tbody tr:nth-of-type(odd) text-white">
+                    <tbody>
+                        <tr>
+                            <td>Release Date</td>
+                            <td class="text-left">
+                                <p>{{ movie?.release_date }}</p>
+                            </td>                                                            
+                        </tr>
+                        <tr>
+                            <td>Runtime</td>
+                            <td class="text-left">
+                                <p>{{ movie?.runtime }}</p>
+                            </td>                                                            
+                        </tr>
+                        <tr>
+                            <td>Production Country</td>
+                            <td class="text-left">
+                                <p><span *ngFor="let country of movie?.production_countries">{{country.name}}, </span></p>
+                            </td>                                                            
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-left font-weight-bold"></h6>Language</td>
+                            <td class="text-left">
+                                    <p><span *ngFor="let lang of movie?.spoken_languages">{{lang.name}}, </span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table class="table table-striped tbody tr:nth-of-type(odd) text-white">
+                    <thead>
+                        <tr>
+                            <td><h6 class="text-left font-weight-bold"></h6>Budget</td>
+                            <td><h6 class="text-left font-weight-bold"></h6>Box Office</td>                              
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">
+                                {{ movie?.budget|currency:'USD' }}.
+                            </td>
+                            <td class="text-left">
+                                {{ movie?.revenue|currency:'USD' }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped tbody tr:nth-of-type(odd) text-white">
+                    <thead>
+                        <tr>
+                            <td><h6 class="text-left font-weight-bold"></h6>Vote Average</td>
+                            <td><h6 class="text-left font-weight-bold"></h6>Vote Count</td>
+                            <td><h6 class="text-left font-weight-bold"></h6>Popularity</td>                               
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">
+                                {{ movie?.vote_average }}.
+                            </td>
+                            <td class="text-left">
+                                {{ movie?.vote_count }}
+                            </td>
+                            <td class="text-left">
+                                {{ movie?.popularity }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container text-white">
+        <h6 class="font-weight-bold mt-4">
+            Plot
+        </h6>
+        <div class="row">
+        <div class="col-xm-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+            <p>
+                {{ movie?.overview }}
+            </p>
+        </div>
+    <div>
+</div>
+<div class="container">
+    <h6 class="font-weight-bold m-4 text-center">
+        Production Companies
+    </h6>
+    <div class="row">
+        <div *ngFor="let company of movie?.production_companies" class="col-sm-2">
+            <div class="card mb-4 shadow-lg rounded grey">
+                    <img *ngIf="company?.logo_path !== null" src="{{'https://image.tmdb.org/t/p/original'+company?.logo_path}}" class="img-fluid">
+                    <img *ngIf="company?.logo_path === null" src="../../assets/img/global.png" class="img-fluid">
+                <div class="card-body">
+                    <p class="white small font-weight-bold" data-toggle="tooltip" title="{{ company.name }}">{{ (company.name.length>15) ? (company.name | slice:0:15)+'..':(company.name) }} </p>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
+    

@@ -1,0 +1,64 @@
+<div>
+    <div>
+        <div class="_1nirg">
+            <div>
+                <ngx-slick-carousel class="_1Y3Wa bg" #slickModal="slick-carousel" [config]="slideConfig1">
+                    <div ngxSlickItem *ngFor = "let movie of movies?.results">
+                        <div *ngIf="((movie?.adult===false)&&(movie))" >
+                            <img src="{{ 'https://image.tmdb.org/t/p/original' + movie.backdrop_path}}" [alt]="movie.title" width="100%">
+                            <div class="_3wxhi ">Movie</div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+        <div class="_3wxhi container">
+            <div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <span></span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="container h3 text-white">Most Popular Movies</div>
+    <div class="container">
+    <div class="row">
+        <ngx-slick-carousel class="carousel bg" #slickModal="slick-carousel" 
+        [config]="slideConfig" 
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem class="slide" *ngFor = "let movie of movies?.results">
+                <div *ngIf="movie?.adult===false" >
+                    <app-movie-thumbnail [movie]="movie" (movieClicked)="handleMovieClicked($event)"></app-movie-thumbnail>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+    </div>
+    <div class="container h3 text-white">Most Popular Movies</div>
+    <div class="container ">
+    <div class="row">
+        <ngx-slick-carousel class="carousel bg" #slickModal="slick-carousel" 
+        [config]="slideConfig" 
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem class="slide" *ngFor = "let movie of movies?.results">
+                <div *ngIf="movie?.adult===false" >
+                    <app-movie-thumbnail [movie]="movie" (movieClicked)="handleMovieClicked($event)"></app-movie-thumbnail>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+    </div>
+</div>
+
+
+
+
+

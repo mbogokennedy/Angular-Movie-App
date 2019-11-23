@@ -1,0 +1,20 @@
+<div>
+<div class="card mb-4 shadow-lg rounded grey">
+    <img src="{{ 'https://image.tmdb.org/t/p/original' + movie?.poster_path}}" [alt]="movie.title">    
+    <div class="card-body" data-toggle="tooltip" title="{{ movie?.title }}">
+        <p class="white small font-weight-bold">{{ (movie?.title.length>20) ? (movie?.title | slice:0:20)+'..':(movie?.title) }}</p>
+        <div class="card-text">
+            <div class="text-secondary small">
+                <h6><span class="badge badge-secondary float-right">{{ movie.vote_average}}</span></h6>
+                <span >({{ movie?.release_date}})</span>
+                <span class="ml-1">{{ movie?.runtime}}</span>
+            </div>
+            <p class="small text-secondary"><span *ngFor="let genre of movie?.genres">{{genre.name}}</span></p>
+        </div>
+        <div [routerLink]="['/movie', movie.id]">
+            <button class="btn btn-block btn-outline-secondary" (click)="handleClick()">View Detail</button>
+        </div>
+    </div>
+</div>
+</div>
+
